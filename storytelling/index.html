@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Storytelling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .story-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #story {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <h1>Interactive Storytelling</h1>
+        <div id="story"></div>
+        <button id="startStory">Start Story</button>
+    </div>
+    <script>
+        const story = [
+            {
+                text: "Once upon a time, in a forest, there lived a hare and a tortoise. The hare was very proud of his speed. One day, the hare saw the tortoise walking slowly and laughed at him. The tortoise challenged the hare to a race. Who do you think will win the race?",
+                question: "Who do you think will win the race?",
+                expectedResponses: ["tortoise", "hare"]
+            },
+            {
+                text: "The race began. The hare ran very fast and soon left the tortoise far behind. Confident of his win, the hare decided to take a nap. Meanwhile, the tortoise kept moving slowly but steadily. What do you think the tortoise did next?",
+                question: "What do you think the tortoise did next?",
+                expectedResponses: ["kept walking", "continued the race"]
+            },
+            {
+                text: "The tortoise kept walking and eventually passed the sleeping hare. When the hare woke up, he saw that the tortoise was near the finish line. The hare ran as fast as he could, but the tortoise crossed the finish line first and won the race. What is the moral of the story?",
+                question: "What is the moral of the story?",
+                expectedResponses: ["slow and steady wins the race", "don't be arrogant"]
+            }
+        ];
+
+        const storyElement = document.getElementById('story');
+        const startButton = document.getElementById('startStory');
+
+        let currentSegment = 0;
+        let speechSynthesis = window.speechSynthesis;
+        let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+        recognition.continuous = false;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        startButton.addEventListener('click', () => {
+            currentSegment = 0;
+            startStory();
+        });
+
+        function startStory() {
+            if (currentSegment < story.length) {
+                let segment = story[currentSegment];
+                speak(segment.text, () => {
+                    askQuestion(segment.question, segment.expectedResponses);
+                });
+            } else {
+                speak("The End. Hope you enjoyed the story! The moral of the story is: Slow and steady wins the race.", () => {});
+            }
+        }
+
+        function speak(text, callback) {
+            let utterance = new SpeechSynthesisUtterance(text);
+            utterance.onend = callback;
+            speechSynthesis.speak(utterance);
+            storyElement.innerText = text;
+        }
+
+        function askQuestion(question, expectedResponses) {
+            speak(question, () => {
+                recognition.start();
+            });
+
+            recognition.onresult = (event) => {
+                let response = event.results[0][0].transcript.toLowerCase();
+                if (expectedResponses.some(r => response.includes(r))) {
+                    speak("Great job! That's correct.", () => {
+                        currentSegment++;
+                        startStory();
+                    });
+                } else {
+                    speak("Good try! Let's continue with the story.", () => {
+                        currentSegment++;
+                        startStory();
+                    });
+                }
+            };
+        }
+    </script>
+</body>
+</html>
