@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Robotec</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s;
+            height: 100%;
+            max-width: 350px; /* Set a max width for the card */
+            margin: auto; /* Center the card within the column */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+            height: 250px; /* Increased height for the card body */
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        .card-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #555;
+            overflow: hidden; /* Hide overflow content */
+            text-overflow: ellipsis; /* Add ellipsis to overflowing text */
+            display: -webkit-box;
+            -webkit-line-clamp: 7; /* Increased to 7 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px; /* Set a fixed height for the card image */
+            object-fit: cover; /* Ensure the image covers the entire area */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        a:hover {
+            text-decoration: none; /* Ensure underline is not added on hover */
+        }
+
+        .row > .col-md-4 {
+            display: flex; /* Use flexbox to align cards */
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Welcome to Robotec</h1>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <a href="educational_games.html">
+                    <div class="card">
+                        <img class="card-img-top" src="https://kneebouncers.com/wp-content/uploads/2023/05/LilGirl_surprised2.png" alt="Card 1 Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Educational Games</h5>
+                            <p class="card-text">Delve into educational games offering interactive exploration of objects, animals, shapes, colors, and vocabulary. Engage with captivating visuals and challenges to foster essential skills and confidence in learning. Join the adventure!</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="card" onclick="showInstructions('Card 2')">
+                    <img class="card-img-top" src="https://www.teachhub.com/wp-content/uploads/2015/08/Aug-26-Storytelling-in-the-Classroom-as-a-Teaching-Strategy_web.jpg" alt="Card 2 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Storytelling</h5>
+                        <p class="card-text">Embark on storytelling escapades brimming with wonder, excitement, and wisdom. Immerse yourself in enchanting tales, where magical realms and unforgettable characters await. Let your imagination roam free as stories unfurl before you!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a href="rhymes/main.html">
+                    <div class="card">
+                        <img class="card-img-top" src="https://www.kidloland.com/blog/wp-content/uploads/2019/03/IMG_1050-1038x576.png" alt="Card 3 Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Rhymes</h5>
+                            <p class="card-text">Immerse yourself in the world of music with our interactive play-along experiences! Discover the joy of playing instruments and creating melodies in a fun, engaging environment.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showInstructions(cardName) {
+            alert('You clicked on ' + cardName);
+            // You can add your next steps or actions here
+        }
+    </script>
+</body>
+
+</html>

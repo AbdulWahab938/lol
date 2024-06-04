@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Games</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 10px;
+        }
+
+        .card {
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s;
+            height: 100%;
+            max-width: 400px; /* Set a max width for the card */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+            height: 100%; /* Set a fixed height for the card body */
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        .card-title {
+            font-size: 24px; /* Increase the font size */
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #555;
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 300px; /* Increase the height for the card image */
+            object-fit: cover; /* Ensure the image covers the entire area */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        a:hover {
+            text-decoration: none; /* Ensure underline is not added on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Educational Games</h1>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <a href="alphabet/index.html">
+                    <div class="card">
+                        <img class="card-img-top" src="https://www.splashlearn.com/blog/wp-content/uploads/2023/11/best-alphabet-learning-apps-for-kids-696x418.jpg" alt="Alphabet Learning Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Alphabet Learning</h5>
+                            <p class="card-text">Engage in fun and interactive activities to learn the alphabet. Enhance your child's letter recognition and pronunciation skills with games and exercises designed to make learning enjoyable.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="Identify/index.html">
+                    <div class="card">
+                        <img class="card-img-top" src="https://img.freepik.com/premium-photo/picture-group-animals-including-one-which-is-called-lion_910054-2366.jpg" alt="Identification Games Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Identification Games</h5>
+                            <p class="card-text">Sharpen your observation and critical thinking skills with identification games. Explore different themes and scenarios while learning to recognize objects, shapes, animals, and colors in a fun and interactive way.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="vocabs/index.html">
+                    <div class="card">
+                        <img class="card-img-top" src="https://media.istockphoto.com/id/1271673071/photo/quote-words-have-power-made-out-of-wooden-letters-on-bright-yellow-background.jpg?s=612x612&w=0&k=20&c=nrdrLN5jSdzc4XjWPIRLVR-RovzX1Kd9qckU1OP2Wv8=" alt="Vocabulary Learning Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Vocabulary Learning</h5>
+                            <p class="card-text">Expand your vocabulary with interactive games designed to enhance word recognition, spelling, and comprehension. Engage with a variety of exercises and challenges to improve language skills.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showInstructions(cardName) {
+            alert('You clicked on ' + cardName);
+            // You can add your next steps or actions here
+        }
+    </script>
+</body>
+
+</html>
